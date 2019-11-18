@@ -1,0 +1,23 @@
+{
+  "name": "bookmark",
+  "version": "1.0.0",
+  "description": "Carmen P. Alice D'Arcangelo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cperez150/bookmark.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cperez150/bookmark/issues"
+  },
+  "homepage": "https://github.com/cperez150/bookmark#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
