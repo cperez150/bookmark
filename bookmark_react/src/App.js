@@ -46,21 +46,8 @@ class App extends Component {
       bookmarks: filteredBookmarks
     });
   }
-  // showAllBookmarks() {
-  //   return this.state.bookmarks.map(bookmark => {
-  //     return (
-  //       <div key={bookmark._id}>
-  //         <li>{bookmark.title}</li>
-  //       </div>
-  //     );
-  //   });
-  // }
+
   render() {
-    // const renderBookmarks = this.state.apiIsLoaded ? (
-    //   this.showAllBookmarks()
-    // ) : (
-    //   <p>Still Loading...</p>
-    // );
     return (
       <div>
         <h1>Bookmark</h1>
@@ -69,7 +56,12 @@ class App extends Component {
           {this.state.bookmarks.map(bookmark => {
             return (
               <div key={bookmark._id}>
-                <li>{bookmark.title}</li>
+                <li>
+                  <a href={bookmark.url} target="_blank">
+                    {bookmark.title}
+                  </a>
+                </li>
+                <p onClick={() => this.deletedbookmark(bookmark._id)}>X</p>
               </div>
             );
           })}

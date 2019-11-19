@@ -25,7 +25,7 @@ class NewBookmark extends Component {
 
     const response = await axios.post(`${baseURL}/bookmarks`, {
       title: this.state.title,
-      url: "test url"
+      url: this.state.url
     });
 
     this.setState({ title: "", url: "" });
