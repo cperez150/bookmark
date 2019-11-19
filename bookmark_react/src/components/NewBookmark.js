@@ -1,8 +1,8 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import axios from "axios";
 const baseURL = "http://localhost:3003";
 
-class NewBookmark extends PureComponent {
+class NewBookmark extends Component {
   constructor(props) {
     super(props);
 
@@ -32,7 +32,7 @@ class NewBookmark extends PureComponent {
           type="text"
           id="title"
           name="title"
-          //   onChange={this.handleChange}
+          onChange={this.handleChange}
           value={this.state.title}
           placeholder="add title"
         />
