@@ -9,15 +9,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookmarks: []
+      bookmarks: [],
+      apiIsLoaded: false
     };
+    this.handleAddBookmark = this.handleAddBookmark.bind(this);
     this.deletedbookmark = this.deletedbookmark.bind(this);
   }
   async componentDidMount() {
     const response = await axios(`${baseURL}/bookmarks`);
-    const data = response.data;
-    this.setState({
-      bookmarks: data
+    const data = response.data.foundBookmarks;
+    await this.setState({
+      bookmarks: data,
+      apiIsLoaded: true
     });
     console.log(data);
   }
@@ -37,12 +40,26 @@ class App extends Component {
       bookmarks: filteredBookmarks
     });
   }
-
+  showAllBookmarks() {
+    return this.state.bookmarks.map(bookmark => {
+      return (
+        <div>
+          <li key={bookmark._id}>{bookmark.title}</li>
+        </div>
+      );
+    });
+  }
   render() {
+    const renderBookmarks = this.state.apiIsLoaded ? (
+      this.showAllBookmarks()
+    ) : (
+      <p>Still Loading...</p>
+    );
     return (
       <div>
         <h1>Bookmark</h1>
-        <NewBookmark />
+        <NewBookmark handleAddBookmark={this.handleAddBookmark} />
+        <ul>{renderBookmarks}</ul>
       </div>
     );
   }
