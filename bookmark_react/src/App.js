@@ -66,6 +66,7 @@ class App extends Component {
                   </a>
                 </li>
                 <p onClick={() => this.deletedbookmark(bookmark._id)}>X</p>
+                <p>edit</p>
               </div>
             );
           })}
