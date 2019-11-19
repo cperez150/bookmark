@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       bookmarks: []
     };
+    this.deletedbookmark = this.deletedbookmark.bind(this);
   }
   async componentDidMount() {
     const response = await axios(`${baseURL}/bookmarks`);
@@ -25,6 +26,18 @@ class App extends Component {
       bookmarks: [...this.state.bookmarks, bookmark]
     });
   }
+
+  //DELETE
+  async deletedbookmark(id) {
+    await axios.delete(`${baseURL}/bookmarks/${id}`);
+    const filteredBookmarks = this.state.bookmarks.filter(bookmark => {
+      return bookmark._id !== id;
+    });
+    this.setState({
+      bookmarks: filteredBookmarks
+    });
+  }
+
   render() {
     return (
       <div>
