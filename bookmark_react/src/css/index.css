@@ -1,0 +1,35 @@
+form {
+  display: flex;
+  justify-content: space-around;
+  max-width: 30%;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+}
+ul {
+  list-style: none;
+}
+li {
+  list-style: none;
+}
+.li_div {
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
+p {
+  color: black;
+}
+p:hover {
+  color: blue;
+  cursor: pointer;
+}
