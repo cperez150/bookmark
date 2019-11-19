@@ -10,29 +10,37 @@ class NewBookmark extends Component {
       title: "",
       url: ""
     };
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleURLChange = this.handleURLChange.bind(this);
   }
-  handleChange(event) {
-    this.setState({ [event.currentTarget.id]: event.currentTarget.value });
+  handleTitleChange(event) {
+    this.setState({ title: event.currentTarget.value });
+  }
+  handleURLChange(event) {
+    this.setState({ url: event.currentTarget.value });
   }
   async handleSubmit(event) {
     event.preventDefault();
+
     const response = await axios.post(`${baseURL}/bookmarks`, {
       title: this.state.title,
-      url: this.state.url
+      url: "test url"
     });
+
     this.setState({ title: "", url: "" });
     this.props.handleAddBookmark(response.data);
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="title"></label>
         <input
           type="text"
           id="title"
           name="title"
-          onChange={this.handleChange}
+          onChange={this.handleTitleChange}
           value={this.state.title}
           placeholder="add title"
         />
@@ -41,7 +49,7 @@ class NewBookmark extends Component {
           type="text"
           id="url"
           name="url"
-          //   onChange={this.handleChange}
+          onChange={this.handleURLChange}
           value={this.state.url}
           placeholder="add url"
         />

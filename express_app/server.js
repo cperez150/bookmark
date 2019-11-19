@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 const port = 3003;
 const mongoose = require("mongoose");
-
+const cors = require("cors");
 /*===========================
           CONTROLLERS 
 =============================*/
@@ -30,8 +30,8 @@ const corsOptions = {
 =============================*/
 app.use(express.json());
 app.use("/bookmarks", bookmarksController);
-
-/*===========================
+app.use(cors(corsOptions));
+/*=========================== 
           MONGOOSE
 =============================*/
 mongoose.connection.on("error", err =>
