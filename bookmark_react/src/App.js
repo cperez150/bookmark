@@ -3,6 +3,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import NewBookmark from "./components/NewBookmark.js";
+
+import "./css/normalize.css";
+import "./css/skeleton.css";
+import "./css/index.css";
 const baseURL = "http://localhost:3003";
 
 class App extends Component {
@@ -55,7 +59,7 @@ class App extends Component {
         <ul>
           {this.state.bookmarks.map(bookmark => {
             return (
-              <div key={bookmark._id}>
+              <div key={bookmark._id} className="li_div">
                 <li>
                   <a href={bookmark.url} target="_blank">
                     {bookmark.title}
