@@ -6,8 +6,8 @@ const bookmarks = express.Router();
 const Bookmark = require("../models/bookmark.js");
 
 /*===========================
-        ROUTES
-=============================*/
+         ROUTES
+ =============================*/
 
 /********   GET  ************/
 bookmarks.get("/", (req, res) => {
@@ -21,6 +21,7 @@ bookmarks.get("/", (req, res) => {
 
 /********   POST   ************/
 bookmarks.post("/", (req, res) => {
+  console.log(req.body);
   Bookmark.create(req.body, (err, createdBookmark) => {
     if (err) {
       res.status(400).json({ error: err.message });

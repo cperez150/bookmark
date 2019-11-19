@@ -53,3 +53,9 @@ mongoose.connection.once("open", () => {
 app.listen(port, () => {
   console.log("listening");
 });
+
+// curl -d '{"title":"Alice Test" , "url":"https://www.tutorialspoint.com/mongodb/mongodb_insert_document.htm"}' -H "Content-Type: application/json" -X POST http://localhost:3003/bookmarks
+
+// curl -d '{"title":"Alice Test" , "url":"https://www.tutorialspoint.com/mongodb/mongodb_insert_document.htm"}' -H "Content-Type: application/json" -X POST http://localhost:3003/bookmarks
+
+// curl -X DELETE http://localhost:3003/bookmarks/
