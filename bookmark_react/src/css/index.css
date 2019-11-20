@@ -23,13 +23,17 @@ li {
   margin: 0 auto;
 
   display: flex;
-  justify-content: space-between;
-  width: 100px;
+  justify-content: space-evenly;
+  width: 1000px;
 }
 p {
   color: black;
+  margin-left: 20px;
 }
 p:hover {
   color: blue;
   cursor: pointer;
+}
+.hide {
+  display: none;
 }
