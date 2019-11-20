@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import NewBookmark from "./components/NewBookmark.js";
@@ -24,13 +23,15 @@ class App extends Component {
     });
     console.log(data);
   }
+
+  //ADD BOOKMARK
   handleAddBookmark(bookmark) {
     this.setState({
       bookmarks: [...this.state.bookmarks, bookmark]
     });
   }
 
-  //DELETE
+  //DELETE BOOKMARK
   async deletedbookmark(id) {
     await axios.delete(`${baseURL}/bookmarks/${id}`);
     const filteredBookmarks = this.state.bookmarks.filter(bookmark => {
@@ -40,6 +41,8 @@ class App extends Component {
       bookmarks: filteredBookmarks
     });
   }
+
+  //SHOW ALL BOOKMARKS
   showAllBookmarks() {
     return this.state.bookmarks.map(bookmark => {
       return (
@@ -49,6 +52,7 @@ class App extends Component {
       );
     });
   }
+
   render() {
     const renderBookmarks = this.state.apiIsLoaded ? (
       this.showAllBookmarks()

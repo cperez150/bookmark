@@ -11,6 +11,14 @@ class NewBookmark extends Component {
       url: ""
     };
   }
+
+  // //handleChange(event){
+  //   const {name, value} = event.target;
+  //   this.setState({
+  //     [name]: value;
+  //   })
+  // }
+
   handleChange(event) {
     this.setState({ [event.currentTarget.id]: event.currentTarget.value });
   }
