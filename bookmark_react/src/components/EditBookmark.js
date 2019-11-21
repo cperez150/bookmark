@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../App.css";
 const baseURL = "http://localhost:3003";
 
 class EditBookmark extends Component {
@@ -40,8 +41,8 @@ class EditBookmark extends Component {
   }
   render() {
     return (
-      <div className="editForm">
-        <form onSubmit={this.handleSubmit}>
+      <div>
+        <form className="editForm" onSubmit={this.handleSubmit}>
           <label htmlFor="title"></label>
           <input
             type="text"
@@ -60,7 +61,7 @@ class EditBookmark extends Component {
             value={this.state.url}
             placeholder={this.props.bookmark.url}
           />
-          <input type="submit" value="Edit Bookmark" />
+          <input class="editBtn" type="submit" value="Edit" />
         </form>
       </div>
     );

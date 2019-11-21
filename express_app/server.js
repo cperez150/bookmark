@@ -29,8 +29,10 @@ const corsOptions = {
          MIDDLEWARE
 =============================*/
 app.use(express.json());
-app.use("/bookmarks", bookmarksController);
 app.use(cors(corsOptions));
+
+//controller is always listed last on middleware
+app.use("/bookmarks", bookmarksController);
 /*=========================== 
           MONGOOSE
 =============================*/

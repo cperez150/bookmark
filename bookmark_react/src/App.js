@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import NewBookmark from "./components/NewBookmark.js";
 import EditBookmark from "./components/EditBookmark.js";
 import "./css/normalize.css";
 // import "./css/skeleton.css";
-import "./css/index.css";
+// import "./css/index.css";
 const baseURL = "http://localhost:3003";
 
 class App extends Component {
@@ -67,29 +66,44 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Bookmark</h1>
-        <NewBookmark handleAddBookmark={this.handleAddBookmark} />
-        <ul>
+      <div class="container">
+        <header>
+          <img class="headimg" src="/images/forlatr.png"></img>
+          <h3> Don't have time now? Save it forlatr</h3>
+        </header>
+
+        <div>
+          <NewBookmark handleAddBookmark={this.handleAddBookmark} />
+        </div>
+        <div class="bookmarkContainer">
           {this.state.bookmarks.map(bookmark => {
             return (
-              <div key={bookmark._id} className="li_div">
-                <p>
-                  <a href={bookmark.url} target="_blank">
-                    {bookmark.title}
-                  </a>
-                </p>
-
-                <p onClick={() => this.deletedbookmark(bookmark._id)}>X</p>
-                {/* <p onClick={this.editBookmark}>edit</p> */}
-                <EditBookmark
-                  bookmark={bookmark}
-                  handleEditBookmark={this.handleEditBookmark}
-                />
+              <div class="returnedBookmark" key={bookmark._id}>
+                <div class="child1">
+                  <div class="grandchild1">
+                    Visit bookmark: <br />
+                    <a href={bookmark.url} target="_blank">
+                      {bookmark.title}
+                    </a>
+                  </div>
+                </div>
+                <div class="child2">
+                  <EditBookmark
+                    class="childReturnedBookmark"
+                    bookmark={bookmark}
+                    handleEditBookmark={this.handleEditBookmark}
+                  />
+                </div>
+                <div
+                  class="grandchild2"
+                  onClick={() => this.deletedbookmark(bookmark._id)}
+                >
+                  Delete
+                </div>
               </div>
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }

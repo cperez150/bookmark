@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../App.css";
 const baseURL = "http://localhost:3003";
 
 class NewBookmark extends Component {
@@ -15,11 +14,24 @@ class NewBookmark extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleURLChange = this.handleURLChange.bind(this);
   }
+<<<<<<< HEAD
+
+  // //handleChange(event){
+  //   const {name, value} = event.target;
+  //   this.setState({
+  //     [name]: value;
+  //   })
+  // }
+
+  handleChange(event) {
+    this.setState({ [event.currentTarget.id]: event.currentTarget.value });
+=======
   handleTitleChange(event) {
     this.setState({ title: event.currentTarget.value });
   }
   handleURLChange(event) {
     this.setState({ url: event.currentTarget.value });
+>>>>>>> 7e0ef272f03b0e0d0d9faa419689b69276e8391d
   }
   async handleSubmit(event) {
     event.preventDefault();
@@ -35,10 +47,9 @@ class NewBookmark extends Component {
 
   render() {
     return (
-      <form class="newBookmark" onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="title"></label>
         <input
-          class="newChild1"
           type="text"
           id="title"
           name="title"
@@ -48,7 +59,6 @@ class NewBookmark extends Component {
         />
         <label htmlFor="url"></label>
         <input
-          class="newChild2"
           type="text"
           id="url"
           name="url"
@@ -56,7 +66,7 @@ class NewBookmark extends Component {
           value={this.state.url}
           placeholder="add url"
         />
-        <input class="newChild3" type="submit" value="Add a Bookmark" />
+        <input type="submit" value="Add a Bookmark" />
       </form>
     );
   }
